@@ -1,0 +1,28 @@
+replicaCount: 2
+
+image:
+  repository: nginx
+  tag: stable
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  hosts: 
+    - host: nginx.local
+      paths: 
+        = path: /
+        pathType: Prefix
+
+env:
+  - name: ENV
+    value: dev
+
+config:
+  LOG_LEVEL: debug
