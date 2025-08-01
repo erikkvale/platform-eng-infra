@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/erikkvale/platform-eng-infra.git
-    targetRevision: HEAD
+    targetRevision: main
     path: charts/base-app
     helm:
       valueFiles:
