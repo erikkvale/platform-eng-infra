@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/erikkvale/platform-eng-infra.git
     targetRevision: main
-    path: charts/base-app
+    path: apps/nginx
     helm:
       valueFiles:
         - ../../../apps/nginx/values.yaml
