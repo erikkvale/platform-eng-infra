@@ -24,7 +24,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/erikkvale/platform-eng-infra.git
-    targetRevision: HEAD
+    targetRevision: main
     path: environments/dev
   destination:
     server: https://kubernetes.default.svc
