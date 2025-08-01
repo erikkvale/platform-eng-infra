@@ -3,6 +3,18 @@ kind: Namespace
 metadata:
   name: argocd
 ---
+# Include the repo registration secret
+apiVersion: v1
+kind: Secret
+metadata:
+  name: repo-platform-infra
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+type: Opaque
+stringData:
+  url: https://github.com/erikkvale/platform-eng-infra.git
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
