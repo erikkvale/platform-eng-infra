@@ -6,7 +6,7 @@ ARGO_NAMESPACE=argocd
 all: start-cluster install-argocd bootstrap-apps
 
 start-cluster:
-	minikube start --profile=$(CLUSTER_NAME)
+	colima start --profile=$(CLUSTER_NAME) --kubernetes
 
 install-argocd:
 	kubectl create namespace $(ARGO_NAMESPACE) || true
@@ -19,4 +19,4 @@ port-forward-argocd:
 	kubectl port-forward svc/argocd-server -n $(ARGO_NAMESPACE) 8080:443
 
 destroy:
-	minikube delete --profile=$(CLUSTER_NAME)
+	colima delete --profile=$(CLUSTER_NAME)
